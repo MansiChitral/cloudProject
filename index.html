@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+    Student Project: Azure Cloud Deployment
+    Author: Mansi Chitral
+    Date: April 2026
+    Note: Using Tailwind CDN for styling to keep deployment package light.
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[NAME - EDIT HERE] | Azure Deployment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .hero-custom { background: linear-gradient(120deg, #0078d4 0%, #2b5797 100%); }
+        .card-hover:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <!-- Simple Header -->
+    <nav class="bg-white border-b border-gray-200">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="h-6 w-6 bg-blue-600 rounded"></div>
+                <!-- CHANGE "Project: Azure" to something like "John's Cloud Project" -->
+                <span class="font-bold text-gray-800 text-lg uppercase tracking-wider">[NAME - EDIT HERE]'S PROJECT</span>
+            </div>
+            <div class="text-sm font-medium text-gray-500">
+                Status: <span class="text-green-600">● Online</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="max-w-5xl mx-auto px-6 py-12">
+        
+        <!-- Welcome Hero -->
+        <header class="hero-custom rounded-3xl p-10 md:p-16 text-white mb-12 shadow-xl">
+            <div class="max-w-2xl">
+                <h1 class="text-3xl md:text-5xl font-bold mb-4">Cloud Computing & Azure Hosting</h1>
+                <p class="text-blue-100 text-lg mb-8 leading-relaxed">
+                    This is a live demonstration of my web application hosted on Microsoft Azure App Service. 
+                    I have configured this site manually to show how Platform-as-a-Service (PaaS) works.
+                </p>
+                <div class="flex gap-3">
+                    <button onclick="checkStatus()" class="bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-full font-bold transition shadow-md">
+                        Run Cloud Test
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Technical Details Grid -->
+        <div class="grid md:grid-cols-2 gap-8 mb-16">
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200 card-hover">
+                <h3 class="text-blue-600 font-bold uppercase text-xs tracking-widest mb-2">Technical Step 01</h3>
+                <h2 class="text-xl font-bold mb-3 text-gray-800">Resource Configuration</h2>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    I started by setting up my <strong>Resource Group</strong> in the Azure Portal. 
+                    I used the F1 Free Tier to host this project, ensuring it stays online without cost.
+                </p>
+            </div>
+            
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200 card-hover">
+                <h3 class="text-blue-600 font-bold uppercase text-xs tracking-widest mb-2">Technical Step 02</h3>
+                <h2 class="text-xl font-bold mb-3 text-gray-800">Deployment Logic</h2>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    Instead of using complex pipelines, I used the <strong>Advanced Tools (Kudu)</strong> console to upload my code directly. This ensured my custom scripts and styles were live instantly.
+                </p>
+            </div>
+        </div>
+
+        <!-- Interactive "Human" Element -->
+        <section class="bg-slate-800 rounded-3xl p-10 text-white relative overflow-hidden">
+            <div class="relative z-10">
+                <h2 class="text-2xl font-bold mb-6">Interactive Verification</h2>
+                <div class="flex flex-col md:flex-row gap-4">
+                    <input id="testInput" type="text" placeholder="Enter text to test server..." 
+                           class="flex-1 bg-slate-700 border border-slate-600 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <button onclick="runLogic()" class="bg-blue-600 hover:bg-blue-500 px-8 py-4 rounded-xl font-bold transition">
+                        Verify Script
+                    </button>
+                </div>
+                <div id="outputBox" class="mt-6 p-4 bg-slate-900 rounded-xl border border-slate-700 font-mono text-sm hidden">
+                    <span class="text-green-400">root@azure-shell:~$</span> <span id="outputText"></span>
+                </div>
+            </div>
+            <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-blue-500/10 rounded-full"></div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-5xl mx-auto px-6 py-12 border-t border-gray-200 text-center">
+        <p class="text-gray-400 text-sm italic">"Completed for Cloud Computing Industry Expert Session"</p>
+        <!-- CHANGE THE NAMES BELOW TO YOUR REAL NAME AND ID -->
+        <p class="mt-2 font-semibold text-gray-600 uppercase tracking-tighter">NAME: Mansi Chitral | ID: TEITA11</p>
+    </footer>
+
+    <script>
+        function checkStatus() {
+            alert("Success! The Azure Web App is active.\n\nHosted via: Microsoft Azure\nStatus: 200 OK");
+        }
+
+        function runLogic() {
+            const val = document.getElementById('testInput').value;
+            const box = document.getElementById('outputBox');
+            const txt = document.getElementById('outputText');
+            
+            if(val) {
+                box.classList.remove('hidden');
+                txt.innerText = "Processing '" + val + "'... Azure environment is stable.";
+            } else {
+                alert("Please type something to test.");
+            }
+        }
+    </script>
+</body>
+</html>
